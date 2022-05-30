@@ -1,14 +1,22 @@
 export const dummyOutput = (input: number) => {
-    const primeFactors : number[] = []
-     
-    if(input % 2 === 0) {
-        // [...primeFactors, input]
-        primeFactors.push(2)
-    }
+    let num = 2
+    var primeFactors : number[] = []
 
-    if(input % 3 === 0) {
-        primeFactors.push(3)
+    if(input === 0 || input < 0) {
+        return primeFactors
+    } 
+
+    while(input > 1) {
+        if(input % num === 0) {
+            primeFactors.push(num)
+            input = input/num
+        }
+        if(input === 1) {
+            return primeFactors
+        }
+        while(input % num !== 0 ) {
+            num++
+        }
     }
-    console.log(primeFactors)
     return primeFactors;
 }
